@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.demo.infra.codegroup.CodeGroupDao">
+
+	<resultMap id="resultMapObj" type="com.example.demo.infra.codegroup.CodeGroupDto"></resultMap>
+
+    <select id="selectList" resultMap="resultMapObj">
+        SELECT
+            a.seq
+            ,a.name
+            ,a.insertDate
+            ,a.deleteDate
+            ,a.delYn
+            ,(select count(aa.seq) from code aa where aa.codeGroup_seq = a.seq) as seqCount
+           	<!-- (select count(aa.seq) from code aa where 1=1 and aa.cdDelNy = 0 and aa.codeGroup_seq = a.seq) as seqCount -->
+         FROM codegroup a
+        WHERE 1=1
+        ORDER BY a.seq DESC
+    </select>
+	  
+</mapper>

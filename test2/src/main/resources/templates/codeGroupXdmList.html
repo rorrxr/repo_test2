@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table>
+		<tr>
+			<td>ch</td>
+			<td>#</td>
+			<td>del</td>
+			<td>seq</td>
+			<td>name</td>
+			<td>count</td>
+			<td>insertDate</td>
+			<!-- <td>Del</td> -->
+		</tr>
+		<tr th:if="${#lists.isEmpty(list)}">
+			<td colspan="6">There is no data</td>
+		</tr>
+		
+		<tr th:if="${!#lists.isEmpty(list)}" th:each="list : ${list}">
+			<td></td>
+			<td></td>
+<!--			<td th:text = "${list.delYn}"></td>-->
+			<td th:if="${list.delYn eq 1}">Y</td>
+			<td th:unless="${list.delYn eq 1}">N</td>
+			
+			<td th:text = "${list.seq}"></td>
+			<td th:text = "${list.name}"></td>
+			<td th:text = "${list.seqCount}"></td>
+			<td th:text = "${#dates.format(list.insertDate, 'yyyy-MM-dd HH:mm:ss')}"></td>			
+		</tr>
+	</table>
+</body>
+</html>
