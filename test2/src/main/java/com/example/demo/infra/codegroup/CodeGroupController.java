@@ -27,4 +27,13 @@ public class CodeGroupController {
 		
 		return "codeGroupXdmList";
 	}
+
+	@RequestMapping(value = "/codeGroupView")
+	public String codeGroupView(CodeGroupDto dto) throws Exception{
+		System.out.println("dto.getSeq() : " + dto.getSeq());
+		System.out.println("dto.getName() : " + dto.getName());		
+		System.out.println("dto.getInsertDate() : " + dto.getInsertDate());		
+
+		return "codeGroupView";
+	}
 }
