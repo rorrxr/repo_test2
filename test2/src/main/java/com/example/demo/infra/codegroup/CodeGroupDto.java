@@ -48,9 +48,5 @@ public class CodeGroupDto {
 		this.seqCount = seqCount;
 	}
 	
-
-	
-	
-	
 	
 }
